@@ -15,5 +15,6 @@ namespace MilkMilk.Data
         }
 
         public DbSet<MilkMilk.Models.Blog> Blog { get; set; }
+        public object PageBlog { get; internal set; }
     }
 }
