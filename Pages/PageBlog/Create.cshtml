@@ -34,6 +34,16 @@
                 <span asp-validation-for="Blog.update_date" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Blog.category" class="control-label"></label>
+                <input asp-for="Blog.category" class="form-control" />
+                <span asp-validation-for="Blog.category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.tag" class="control-label"></label>
+                <input asp-for="Blog.tag" class="form-control" />
+                <span asp-validation-for="Blog.tag" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

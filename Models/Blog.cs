@@ -11,6 +11,9 @@ namespace MilkMilk.Models
         public int id { get; set; }
         public string title { get; set; }
         public string content { get; set; }
+        public string category { get; set; }
+
+        public string tag { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime release_date { get; set; }
