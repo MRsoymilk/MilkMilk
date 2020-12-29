@@ -8,3 +8,29 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
+
+<div id="editormd">
+    <textarea style="display: none;"></textarea>
+</div>
+<script src="~/lib/markdown/js/jquery.min.js"></script>
+<script src="~/lib/markdown/js/editormd.min.js"></script>
+<script type="text/javascript">
+    var editor;
+    $(function () {
+        editor = editormd("editormd", {
+            width: "90%",
+            height: 640,
+            syncScrolling: "single",
+            codeFold: true,
+            htmlDecode: true,
+            tex: true,
+            taskList: true,
+            emoji: true,
+            flowChart: true,
+            sequenceDiagram: true,
+            path: "/lib/markdown/lib/"
+        })
+    })
+</script>
