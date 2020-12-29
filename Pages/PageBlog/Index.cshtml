@@ -16,6 +16,8 @@
         <select asp-for="SearchStringReleaseDate" asp-items="Model.SearchListReleaseDate">
             <option value="">All</option>
         </select>
+    </p>
+    <p>
         Title: <input type="text" asp-for="SearchStringTitle" />
         <input type="submit" value="Search" />
     </p>
@@ -31,16 +33,16 @@
                 @Html.DisplayNameFor(model => model.Blog[0].content)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Blog[0].release_date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Blog[0].update_date)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Blog[0].category)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Blog[0].tag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Blog[0].release_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Blog[0].update_date)
             </th>
             <th></th>
         </tr>
@@ -50,16 +52,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.title)
+                    <a asp-page="./Details" asp-route-id="@item.id">@Html.DisplayFor(modelItem => item.title)</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.content)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.release_date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.update_date)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.category)
@@ -68,8 +64,13 @@
                     @Html.DisplayFor(modelItem => item.tag)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.release_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.update_date)
+                </td>
+                <td>
                     <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
                     <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
                 </td>
             </tr>
