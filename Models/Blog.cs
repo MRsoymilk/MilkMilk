@@ -9,8 +9,6 @@ namespace MilkMilk.Models
     public class Blog
     {
         public int id { get; set; }
-        public string title { get; set; }
-        public string content { get; set; }
         public string category { get; set; }
 
         public string tag { get; set; }
@@ -18,5 +16,10 @@ namespace MilkMilk.Models
         [DataType(DataType.DateTime)]
         public DateTime release_date { get; set; }
         public DateTime update_date { get; set; }
+        [Required(ErrorMessage ="Title is empty")]
+        public string title { get; set; }
+        [Required]
+        public string content { get; set; }
+        
     }
 }
