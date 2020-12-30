@@ -18,8 +18,6 @@ namespace MilkMilk.Pages.PageBlog
         private readonly MilkMilk.Data.MilkMilkContext _context;
         private readonly ILogger _logger;
 
-
-
         public IndexModel(MilkMilk.Data.MilkMilkContext context, ILogger<IndexModel> logger)
         {
             _context = context;
@@ -27,6 +25,13 @@ namespace MilkMilk.Pages.PageBlog
         }
 
         public IList<Blog> Blog { get; set; }
+        public int TotalRecords { get; set; } = 0;
+        // Page Number
+        [BindProperty(SupportsGet = true)]
+        public int P { get; set; } = 1;
+        // Page Size
+        [BindProperty(SupportsGet =true)]
+        public int S { get; set; } = 10;
 
         public async Task OnGetAsync()
         {
@@ -39,8 +44,12 @@ namespace MilkMilk.Pages.PageBlog
             {
                 blogs = blogs.Where(s => s.title.Contains(SearchStringTitle));
             }
-
-            Blog = await blogs.ToListAsync();
+            TotalRecords = blogs.Count();
+            Blog = await blogs
+                .OrderBy(x => x.id)
+                .Skip((P - 1) * S)
+                .Take(S)
+                .ToListAsync();
         }
 
         [BindProperty(SupportsGet = true)]
