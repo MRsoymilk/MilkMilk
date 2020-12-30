@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
 
     <link href="~/lib/markdown/css/editormd.css" rel="stylesheet" />
-    
+
 </head>
 <body>
     <header>
@@ -35,6 +35,11 @@
             </div>
         </nav>
     </header>
+
+    <markdown>
+        ## this is test
+    </markdown>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -46,7 +51,7 @@
             &copy; 2020 - MilkMilk - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
         <div class="container">
-            <email>codermrsoymilk</email>
+            <email mail-to="codermrsoymilk"></email>
         </div>
     </footer>
 

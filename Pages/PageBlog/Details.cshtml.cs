@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Markdig;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -34,6 +35,10 @@ namespace MilkMilk.Pages.PageBlog
             {
                 return NotFound();
             }
+            var pipeline = new MarkdownPipelineBuilder()
+                .UseAdvancedExtensions()
+                .Build();
+            Blog.content = Markdown.ToHtml(Blog.content, pipeline);
             return Page();
         }
     }
