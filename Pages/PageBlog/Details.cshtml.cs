@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Markdig;
 using Markdig.SyntaxHighlighting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using MilkMilk.Data;
 using MilkMilk.Models;
 
 namespace MilkMilk.Pages.PageBlog
@@ -36,6 +32,7 @@ namespace MilkMilk.Pages.PageBlog
             {
                 return NotFound();
             }
+            // TODO: simplify
             var pipeline = new MarkdownPipelineBuilder()
                 .UseAdvancedExtensions()
                 .UseSyntaxHighlighting()

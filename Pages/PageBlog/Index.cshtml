@@ -5,30 +5,25 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
 <p>
     <a asp-page="Create">Create New</a>
 </p>
 
 <form>
-    <p>
-        Title: <input type="text" asp-for="SearchStringTitle" />
-        Category: <input type="text" asp-for="SearchStringCategory" />
-        Tag: <input type="text" asp-for="SearchStringTag" /> 
-        <input type="submit" value="Search" />
-    </p>
+    <div class="row float-right">
+        <input type="text" asp-for="SearchStringTitle" placeholder="Title...?" class="form-control col-3" />
+        <input type="text" asp-for="SearchStringCategory" placeholder="Category...?" class="form-control col-3" />
+        <input type="text" asp-for="SearchStringTag" placeholder="Tag...?" class="form-control col-3" />
+        <input type="submit" value="Search" class="btn btn-outline-secondary" />
+    </div>
 </form>
 
 <table class="table">
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Blog[0].title)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Blog[0].content)
-            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Blog[0].category)
             </th>
@@ -51,11 +46,10 @@
         {
             <tr>
                 <td>
-                    <a asp-page="./Details" asp-route-id="@item.id">@Html.DisplayFor(modelItem => item.title)</a>
+                    <a asp-page="./Details" asp-route-id="@item.id" class="btn btn-outline-info w-100">
+                        @Html.DisplayFor(modelItem => item.title)
+                    </a>
                 </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.content)
-                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.category)
                 </td>
@@ -68,14 +62,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.update_date)
                 </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+                <td class="row">
+                    <a asp-page="./Edit" asp-route-id="@item.id" class="btn btn-outline-primary w-50">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.id" class="btn btn-outline-danger w-50">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
 <paging page-no="Model.P"
         page-size="Model.S"
         total-records="Model.TotalRecords">

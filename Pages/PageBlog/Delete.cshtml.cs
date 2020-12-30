@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using MilkMilk.Data;
 using MilkMilk.Models;
 using MilkMilk.Internal;
 using Microsoft.Extensions.Logging;
+using Markdig;
+using Markdig.SyntaxHighlighting;
 
 namespace MilkMilk.Pages.PageBlog
 {
@@ -39,6 +37,12 @@ namespace MilkMilk.Pages.PageBlog
             {
                 return NotFound();
             }
+            // TODO: simplify
+            var pipeline = new MarkdownPipelineBuilder()
+                .UseAdvancedExtensions()
+                .UseSyntaxHighlighting()
+                .Build();
+            Blog.content = Markdown.ToHtml(Blog.content, pipeline);
             return Page();
         }
 

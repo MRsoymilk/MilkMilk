@@ -8,8 +8,6 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Blog</h4>
-    <hr />
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Blog.title)
@@ -32,7 +30,7 @@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Blog.content)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-10 border border-dark">
             @Html.Raw(Model.Blog.content)
         </dd>
         <dt class="col-sm-2">

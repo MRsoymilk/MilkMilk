@@ -2,9 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using MilkMilk.Data;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MilkMilk.Models
 {
@@ -26,6 +24,15 @@ namespace MilkMilk.Models
                 {
                     title = "Hello World",
                     content = "hello world! This is my first blog!",
+                    release_date = DateTime.Parse("2020-1-1"),
+                    update_date = DateTime.Parse("2020-1-1"),
+                    category = "category",
+                    tag = "tag"
+                },
+                new Blog
+                {
+                    title = "Markdown",
+                    content = "test for `markdown`",
                     release_date = DateTime.Parse("2020-1-1"),
                     update_date = DateTime.Parse("2020-1-1"),
                     category = "category",
