@@ -44,6 +44,14 @@ namespace MilkMilk.Pages.PageBlog
             {
                 blogs = blogs.Where(s => s.title.Contains(SearchStringTitle));
             }
+            if (!string.IsNullOrEmpty(SearchStringCategory))
+            {
+                blogs = blogs.Where(s => s.category.Contains(SearchStringCategory));
+            }
+            if (!string.IsNullOrEmpty(SearchStringTag))
+            {
+                blogs = blogs.Where(s => s.tag.Contains(SearchStringTag));
+            }
             TotalRecords = blogs.Count();
             Blog = await blogs
                 .OrderBy(x => x.id)
@@ -54,6 +62,10 @@ namespace MilkMilk.Pages.PageBlog
 
         [BindProperty(SupportsGet = true)]
         public string SearchStringTitle { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string SearchStringCategory { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string SearchStringTag { get; set; }
 
     }
 }
