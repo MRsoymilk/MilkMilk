@@ -9,6 +9,7 @@
 
 <h4>Blog</h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -19,21 +20,6 @@
                 <span asp-validation-for="Blog.title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Blog.content" class="control-label"></label>
-                <input asp-for="Blog.content" class="form-control" />
-                <span asp-validation-for="Blog.content" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Blog.release_date" class="control-label"></label>
-                <input asp-for="Blog.release_date" class="form-control" />
-                <span asp-validation-for="Blog.release_date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Blog.update_date" class="control-label"></label>
-                <input asp-for="Blog.update_date" class="form-control" />
-                <span asp-validation-for="Blog.update_date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Blog.category" class="control-label"></label>
                 <input asp-for="Blog.category" class="form-control" />
                 <span asp-validation-for="Blog.category" class="text-danger"></span>
@@ -42,6 +28,33 @@
                 <label asp-for="Blog.tag" class="control-label"></label>
                 <input asp-for="Blog.tag" class="form-control" />
                 <span asp-validation-for="Blog.tag" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Blog.content" class="control-label"></label>
+                <div id="createmd">
+                    <textarea style="display: none;" asp-for="Blog.content"></textarea>
+                </div>
+                <span asp-validation-for="Blog.content" class="text-danger"></span>
+                <script src="~/lib/markdown/js/jquery.min.js"></script>
+                <script src="~/lib/markdown/js/editormd.min.js"></script>
+                <script type="text/javascript">
+                    var editor;
+                    $(function () {
+                        editor = editormd("createmd", {
+                            width: "90%",
+                            height: 640,
+                            syncScrolling: "single",
+                            codeFold: true,
+                            htmlDecode: true,
+                            tex: true,
+                            taskList: true,
+                            emoji: true,
+                            flowChart: true,
+                            sequenceDiagram: true,
+                            path: "/lib/markdown/lib/"
+                        })
+                    })
+                </script>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

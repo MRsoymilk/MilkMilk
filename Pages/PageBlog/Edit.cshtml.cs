@@ -14,7 +14,6 @@ namespace MilkMilk.Pages.PageBlog
     public class EditModel : PageModel
     {
         private readonly MilkMilk.Data.MilkMilkContext _context;
-
         public EditModel(MilkMilk.Data.MilkMilkContext context)
         {
             _context = context;
@@ -47,9 +46,8 @@ namespace MilkMilk.Pages.PageBlog
             {
                 return Page();
             }
-
+            Blog.update_date = DateTime.Now;
             _context.Attach(Blog).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -65,7 +63,6 @@ namespace MilkMilk.Pages.PageBlog
                     throw;
                 }
             }
-
             return RedirectToPage("./Index");
         }
 

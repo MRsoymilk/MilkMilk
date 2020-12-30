@@ -37,7 +37,8 @@ namespace MilkMilk.Pages.PageBlog
             {
                 return Page();
             }
-
+            Blog.release_date = DateTime.Now;
+            Blog.update_date = DateTime.Now;
             _context.Blog.Add(Blog);
             await _context.SaveChangesAsync();
             _logger.QuoteAdd(Blog.title);

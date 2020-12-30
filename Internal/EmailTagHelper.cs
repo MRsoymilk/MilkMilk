@@ -10,13 +10,14 @@ namespace MilkMilk.Internal
     {
         private const string _email_domain = "gmail.com";
         public string MailTo { get; set; }
-        public override void Process(TagHelperContext context, TagHelperOutput output)
+        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             // base.Process(context, output);
             output.TagName = "a";
-            var address = MailTo + "@" + _email_domain;
-            output.Attributes.SetAttribute("href", "mailto:" + address);
-            output.Content.SetContent(address);
+            var content = await output.GetChildContentAsync();
+            var target = content.GetContent() + "@" + _email_domain;
+            output.Attributes.SetAttribute("href", "mailto:" + target);
+            output.Content.SetContent(target);
         }
     }
 }
