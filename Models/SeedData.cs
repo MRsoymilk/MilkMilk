@@ -13,7 +13,7 @@ namespace MilkMilk.Models
             using var context = new MilkMilkContext(
                 serviceProvider.GetRequiredService<
                     DbContextOptions<MilkMilkContext>>());
-            // Look for any movies.
+            // Look for any blogs.
             if (context.Blog.Any())
             {
                 return;   // DB has been seeded

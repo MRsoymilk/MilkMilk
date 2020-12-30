@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkMilk", "MilkMilk.csproj", "{993226B6-7B86-4EC6-AAAC-376BF531CD04}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnCSharp", "..\..\LearnCSharp\LearnCSharp.csproj", "{931C0D49-BC35-49E1-A94D-8E9B169F7DC7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{993226B6-7B86-4EC6-AAAC-376BF531CD04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{993226B6-7B86-4EC6-AAAC-376BF531CD04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{993226B6-7B86-4EC6-AAAC-376BF531CD04}.Release|Any CPU.Build.0 = Release|Any CPU
-		{931C0D49-BC35-49E1-A94D-8E9B169F7DC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{931C0D49-BC35-49E1-A94D-8E9B169F7DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{931C0D49-BC35-49E1-A94D-8E9B169F7DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{931C0D49-BC35-49E1-A94D-8E9B169F7DC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

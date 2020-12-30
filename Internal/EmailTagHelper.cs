@@ -12,7 +12,6 @@ namespace MilkMilk.Internal
         public string MailTo { get; set; }
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
-            // base.Process(context, output);
             output.TagName = "a";
             var content = await output.GetChildContentAsync();
             var target = content.GetContent() + "@" + _email_domain;
