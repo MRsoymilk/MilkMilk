@@ -24,9 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Blog[0].title)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Blog[0].content)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Blog[0].category)
             </th>
@@ -51,9 +51,9 @@
                 <td>
                     <a asp-page="./Details" asp-route-id="@item.id">@Html.DisplayFor(modelItem => item.title)</a>
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.content)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.category)
                 </td>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Markdig;
+using Markdig.SyntaxHighlighting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +38,7 @@ namespace MilkMilk.Pages.PageBlog
             }
             var pipeline = new MarkdownPipelineBuilder()
                 .UseAdvancedExtensions()
+                .UseSyntaxHighlighting()
                 .Build();
             Blog.content = Markdown.ToHtml(Blog.content, pipeline);
             return Page();
