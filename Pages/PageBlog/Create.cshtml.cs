@@ -33,6 +33,7 @@ namespace MilkMilk.Pages.PageBlog
             {
                 return Page();
             }
+            // release date and update date is current time
             Blog.release_date = DateTime.Now;
             Blog.update_date = DateTime.Now;
             _context.Blog.Add(Blog);

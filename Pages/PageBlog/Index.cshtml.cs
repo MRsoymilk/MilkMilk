@@ -27,7 +27,7 @@ namespace MilkMilk.Pages.PageBlog
         [BindProperty(SupportsGet = true)]
         public int P { get; set; } = 1;
         // Page Size
-        [BindProperty(SupportsGet =true)]
+        [BindProperty(SupportsGet = true)]
         public int S { get; set; } = 10;
 
         public async Task OnGetAsync()
@@ -36,19 +36,24 @@ namespace MilkMilk.Pages.PageBlog
 
             var blogs = from blog in _context.Blog
                         select blog;
-
+            
+            // search title
             if (!string.IsNullOrEmpty(SearchStringTitle))
             {
                 blogs = blogs.Where(s => s.title.Contains(SearchStringTitle));
             }
+            // search category
             if (!string.IsNullOrEmpty(SearchStringCategory))
             {
                 blogs = blogs.Where(s => s.category.Contains(SearchStringCategory));
             }
+            // search tag
             if (!string.IsNullOrEmpty(SearchStringTag))
             {
                 blogs = blogs.Where(s => s.tag.Contains(SearchStringTag));
             }
+
+            // pagination
             TotalRecords = blogs.Count();
             Blog = await blogs
                 .OrderBy(x => x.id)

@@ -43,6 +43,7 @@ namespace MilkMilk.Pages.PageBlog
             {
                 return Page();
             }
+            // update date is current time
             Blog.update_date = DateTime.Now;
             _context.Attach(Blog).State = EntityState.Modified;
             try
