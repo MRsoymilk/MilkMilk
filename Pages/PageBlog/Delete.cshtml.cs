@@ -28,6 +28,7 @@ namespace MilkMilk.Pages.PageBlog
         {
             if (id == null)
             {
+                _logger.QuoteDeleteFail("id == null", (int)id);
                 return NotFound();
             }
 
@@ -35,6 +36,7 @@ namespace MilkMilk.Pages.PageBlog
 
             if (Blog == null)
             {
+                _logger.QuoteDeleteFail("Blog == null", (int)id);
                 return NotFound();
             }
             // TODO: simplify
